@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Blog</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="../css/empty.css">
+    
 </head>
-
 <body>
-  <div>
-    <header>
-      <h1>
-        <a href="/">Tech Blog</a>
-      </h1>
-        <nav>
-          <span><a href="/">home</a></span> 
-          {{#if loggedIn}}
-          <a href="/dashboard">dashboard</a>
-          <button id="logout" class="btn-no-style">logout</button>
+
+<header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+         
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong>Tech Blog</strong>
+        </a>
+        
+
+          {{#if logged_in}}
+            <button class="visible btn btn-sm btn-outline-secondary" id="logout">Logout</button>
           {{else}}
-          <a href="/login">login</a>
+          <a class=" btn btn-sm btn-outline-secondary" href="/login">Log in</a>
           {{/if}}
-        </nav>
-    </header>
-    <main>
-      {{{ body }}}
-    </main>
-    <footer>
-      Thanks for visiting!
-    </footer>
-  </div>
-
-  {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
+      </div>
+    </div>
+  </header>
+  {{{body}}}
+  
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="mb-1">Thanks for visiting</p>
+    </div>
+  </footer>
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
   {{/if}}
-
 </body>
-
 </html>

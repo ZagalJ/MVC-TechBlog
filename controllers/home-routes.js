@@ -15,21 +15,21 @@ router.get('/', (req, res) => {
         include: [
             {
                 model: User,
-                attributes: ['username']
+                attributes: ['user_name']
             },
             {
                 model: Comment,
                 attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
                 include: {
                     model: User,
-                    attributes: ['username']
+                    attributes: ['user_name']
                 }
             }
         ]
     })
     .then(dbPostData => {
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('homepage', {
+      res.render('home', {
         posts,
         loggedIn: req.session.loggedIn
       });
@@ -55,14 +55,14 @@ router.get('/post/:id', (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['username']
+          attributes: ['user_name']
         },
         {
             model: Comment,
             attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
             include: {
                 model: User,
-                attributes: ['username']
+                attributes: ['user_name']
             }
         }
       ]
