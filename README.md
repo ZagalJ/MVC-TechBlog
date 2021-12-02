@@ -8,11 +8,18 @@
 This is a CMS-style blog site, where developers can publish their blog posts and comment on other developers’ posts as well. This app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ## Table of Contents
+* [Direct Link](#link)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contributions](#contributions)
 * [License](#license)
 * [Questions](#questions)
+
+## Link
+Access app directly from here 
+(https://still-woodland-59005.herokuapp.com)
+  * ![demo_still](assets/sc.png)
+
 
 ## Installation
 npm i
