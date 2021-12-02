@@ -11,19 +11,19 @@ router.get("/", withAuth, (req, res) => {
         // use the ID from the session
         user_id: req.session.user_id,
       },
-      attributes: ["id", "title", "created_at", "post_content"],
+      attributes: ["id", "title","post_text", "created_at"],
       include: [
         {
           model: Comment,
           attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
           include: {
             model: User,
-            attributes: ["username"],
+            attributes: ["user_name"],
           },
         },
         {
           model: User,
-          attributes: ["username", "id"],
+          attributes: ["user_name", "id"],
         },
       ],
     })
@@ -43,19 +43,19 @@ router.get("/", withAuth, (req, res) => {
       where: {
         id: req.params.id,
       },
-      attributes: ["id", "title", "created_at", "post_content"],
+      attributes: ["id", "title", "created_at", "post_text"],
       include: [
         {
           model: Comment,
           attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
           include: {
             model: User,
-            attributes: ["username"],
+            attributes: ["user_name"],
           },
         },
         {
           model: User,
-          attributes: ["username", "id"],
+          attributes: ["user_name", "id"],
         },
       ],
     })
@@ -85,19 +85,19 @@ router.get("/", withAuth, (req, res) => {
         // use the ID from the session
         user_id: req.session.user_id,
       },
-      attributes: ["id", "title", "created_at", "post_content"],
+      attributes: ["id", "title", "created_at", "post_text"],
       include: [
         {
           model: Comment,
           attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
           include: {
             model: User,
-            attributes: ["username"],
+            attributes: ["user_name"],
           },
         },
         {
           model: User,
-          attributes: ["username", "id"],
+          attributes: ["user_name", "id"],
         },
       ],
     })

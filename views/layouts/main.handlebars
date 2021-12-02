@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
     <title>Tech Blog</title>
-    <link rel="stylesheet" href="../css/empty.css">
+    {{!-- <link rel="stylesheet" href="../css/empty.css"> --}}
     
 </head>
 <body>
@@ -24,9 +24,10 @@
         <a href="/" class="navbar-brand d-flex align-items-center">
           <strong>Tech Blog</strong>
         </a>
-        
+          <a class=" btn btn-sm btn-outline-secondary" href="/dashboard/">My Posts</a>
+          <a class=" btn btn-sm btn-outline-secondary" href="/dashboard/create">New Post</a>
 
-          {{#if logged_in}}
+          {{#if loggedIn}}
             <button class="visible btn btn-sm btn-outline-secondary" id="logout">Logout</button>
           {{else}}
           <a class=" btn btn-sm btn-outline-secondary" href="/login">Log in</a>
@@ -44,7 +45,7 @@
       <p class="mb-1">Thanks for visiting</p>
     </div>
   </footer>
-  {{#if logged_in}}
+  {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>

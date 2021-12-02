@@ -1,18 +1,18 @@
 async function signupFormHandler(event) {
     event.preventDefault();
     // get the information from the sign up form
-    const first_name = document.querySelector('#firstName').value.trim();
-    const userName = document.querySelector('#username').value.trim();
+    const first_name = document.querySelector('#first_name').value.trim();
+    const user_name = document.querySelector('#user_name').value.trim();
     const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password').value.trim();
     // if all three fields have content
-    if (userName && first_name && email && password) {
+    if (user_name && first_name && email && password) {
         // POST the new user to the user table in the database
-        console.log(userName)
+        console.log(user_name)
         const response = await fetch('/api/users/signup', {
             method: 'post',
             body: JSON.stringify({
-                userName,
+                user_name,
                 first_name,
                 email,
                 password

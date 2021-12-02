@@ -113,8 +113,8 @@ router.post('/logout', withAuth, (req, res) => {
 
 router.post("/signup", function (req, res) {
   User.create({
-      userName: req.body.username,
-      firstName: req.body.first_name,
+      user_name: req.body.user_name,
+      first_name: req.body.first_name,
       email: req.body.email,
       password: req.body.password
 

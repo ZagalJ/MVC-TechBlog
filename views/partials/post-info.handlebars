@@ -1,0 +1,26 @@
+<div class="container mb-3">
+  <div class="card col-12">
+    <div class="card-body">
+      <h5 class="card-title">
+        <a href="/post/{{id}}" class="">
+          {{title}}
+        </a>
+        {{#if user.user_name}}
+          <a class="col-12" href="/dashboard/edit/{{id}}">
+            <button
+              class="btn btn-primary"
+              style=" right:15px;"
+            >Edit Post</button>
+          </a>
+        {{/if}}
+      </h5>
+      <p class="card-text">{{post_text}}</p>
+      <b>{{user.user_name}}</b>
+      |
+      {{format_date created_at}}
+      |
+      <a href="/post/{{id}}" class="card-link">{{comments.length}}
+        {{format_plural "comment" comments.length}}</a>
+    </div>
+  </div>
+</div>

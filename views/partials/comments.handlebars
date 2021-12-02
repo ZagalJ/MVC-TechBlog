@@ -1,0 +1,11 @@
+{{#each this}}
+  <div class="container mt-3">
+    <ul class="list-group">
+      <li class="list-group-item" style="background-color: lightgray;">
+        {{user.user_name}}
+        on
+        {{format_date created_at}}</li>
+      <li class="list-group-item"> {{comment_text}}</li>
+    </ul>
+  </div>
+{{/each}}
