@@ -111,6 +111,23 @@ router.post('/logout', withAuth, (req, res) => {
   }
 })
 
+router.post("/signup", function (req, res) {
+  User.create({
+      userName: req.body.username,
+      firstName: req.body.first_name,
+      email: req.body.email,
+      password: req.body.password
+
+  })
+      .then(function (userData) {
+        res.json({userData, 
+          logged_in: true});
+      })
+      .catch(function (err) {
+          res.status(401).json(err);
+      });
+});
+
 // PUT /api/users/1 -- update an existing user
 router.put('/:id', withAuth, (req, res) => {
      User.update(req.body, {

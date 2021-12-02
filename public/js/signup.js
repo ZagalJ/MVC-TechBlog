@@ -1,1 +1,31 @@
-async function signupFormHandler(e){e.preventDefault();var t=document.querySelector("#firstName").value.trim(),a=document.querySelector("#lastName").value.trim(),r=document.querySelector("#email").value.trim(),e=document.querySelector("#password").value.trim();t&&a&&r&&e&&((e=await fetch("/api/users/signup",{method:"post",body:JSON.stringify({first_name:t,last_name:a,email:r,password:e}),headers:{"Content-Type":"application/json"}})).ok?(alert("Account created! Please log in."),document.location.replace("/")):alert(e.statusText))}document.querySelector(".signup-form").addEventListener("submit",signupFormHandler);
+async function signupFormHandler(event) {
+    event.preventDefault();
+    // get the information from the sign up form
+    const first_name = document.querySelector('#firstName').value.trim();
+    const userName = document.querySelector('#username').value.trim();
+    const email = document.querySelector('#email').value.trim();
+    const password = document.querySelector('#password').value.trim();
+    // if all three fields have content
+    if (userName && first_name && email && password) {
+        // POST the new user to the user table in the database
+        console.log(userName)
+        const response = await fetch('/api/users/signup', {
+            method: 'post',
+            body: JSON.stringify({
+                userName,
+                first_name,
+                email,
+                password
+            }),
+            headers: {'Content-Type': 'application/json'}
+         });
+         // when the fetch promise is fufilled, check the response status and convey the results
+         if (response.ok) {
+             alert('Account created! Please log in.');
+             document.location.replace('/');
+         } else {
+             alert(response.statusText)
+        }
+    }
+}
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
