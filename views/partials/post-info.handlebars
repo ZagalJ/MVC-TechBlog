@@ -5,7 +5,7 @@
         <a href="/post/{{id}}" class="">
           {{title}}
         </a>
-        {{#if user.user_name}}
+        {{#if user.username}}
           <a class="col-12" href="/dashboard/edit/{{id}}">
             <button
               class="btn btn-primary"
@@ -15,7 +15,7 @@
         {{/if}}
       </h5>
       <p class="card-text">{{post_text}}</p>
-      <b>{{user.user_name}}</b>
+      <b>{{user.username}}</b>
       |
       {{format_date created_at}}
       |
